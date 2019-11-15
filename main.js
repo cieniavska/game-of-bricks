@@ -59,7 +59,6 @@ window.onload = () => {
     ballX += ballSpeedX;
     ballY += ballSpeedY;
 
-
         if (ballX < 0) { //left 
             ballSpeedX *= -1;
         }
