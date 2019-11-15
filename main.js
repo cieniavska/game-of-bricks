@@ -18,7 +18,6 @@ let paddleX = 400;
 let mouseX = 0;
 let mouseY = 0;
 
-
 function updateMousePos(e) {
     let rect = canvas.getBoundingClientRect();
     let root = document.documentElement;
@@ -77,6 +76,15 @@ window.onload = () => {
             ballReset();
         }
 
+        let ballBrickCol = Math.floor(ballX / brickWidth);
+        let ballBrickRow = Math.floor(ballY / brickHeight);
+        let brickIndexUnderBall = rowColToArrayIndex(ballBrickCol,ballBrickRow);
+
+        if(brickIndexUnderBall >= 0 &&
+            brickIndexUnderBall < brickCols * brickRows) {
+            brickGrid[brickIndexUnderBall] = false;
+            }
+
             let paddleTopEdgeY = canvas.height-paddleDistfromEdge;
             let paddleBottomEdgeY = paddleTopEdgeY + paddleThickness;
 
@@ -120,12 +128,6 @@ window.onload = () => {
         colorRect(paddleX, canvas.height-paddleDistfromEdge, paddleWidth, paddleThickness, "white");
 
         drawBricks();
-
-        let mouseBrickCol = Math.floor(mouseX / brickWidth);
-        let mouseBrickRow = Math.floor(mouseY / brickHeight);
-        let brickIndexUnderMouse = rowColToArrayIndex(mouseBrickCol,mouseBrickRow);
-
-        colorText(mouseBrickCol + "," + mouseBrickRow + ":" + brickIndexUnderMouse, mouseX,mouseY, "yellow");
     }
 
     function colorRect(topLeftX,topLeftY,boxWidth, boxHeight,fillColor){
