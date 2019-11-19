@@ -6,5 +6,7 @@ The code was written while taking a course on Udemy called "How to program games
 
 The code belongs to Chris, I have only made some improvements, meaning I've updated the code to a newer standard of JS. That means that you can find there arrow functions, lets and consts instead of vars, different names of variables (camel Case).
 
+For a quick preview, please use this link: https://cieniavska.github.io/game-of-bricks/
+
 Enjoy! 
 
